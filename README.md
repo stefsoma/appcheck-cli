@@ -1,5 +1,7 @@
 # AppCheck CLI Tool
 
+[![App-Check-logo.png](https://i.postimg.cc/NMWLCxWX/App-Check-logo.png)](https://postimg.cc/47QJmp44) <!-- Replace this URL with the actual URL of your logo -->
+
 AppCheck is a command-line tool designed to help developers manage and maintain JavaScript/TypeScript projects. It provides features to check for unused files, unused or missing translation keys, unused styling, and unused functions, helping to keep your project clean and efficient.
 
 ## Features
@@ -136,6 +138,17 @@ Example Output:
 
       appcheck help
         Displays help information.
+
+## Repository
+
+- **GitHub Repository:** [stefsoma/appcheck-cli](https://github.com/stefsoma/appcheck-cli)
+- **Issues:** [Submit an issue](https://github.com/stefsoma/appcheck-cli/issues)
+- **License:** MIT
+
+## Statistics
+
+- **Weekly Downloads:** ![Weekly Downloads](https://img.shields.io/npm/dw/appcheck-cli) <!-- Badge for weekly downloads -->
+- **Version:** ![Version](https://img.shields.io/npm/v/appcheck-cli) <!-- Badge for version -->
 
 ## Contributing
 

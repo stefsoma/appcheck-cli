@@ -1,6 +1,6 @@
 {
   "name": "appcheck-cli",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "A CLI tool for checking files and translations",
   "main": "index.js",
   "bin": {
@@ -10,8 +10,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cli",
+    "tool",
+    "appcheck",
+    "javascript",
+    "npm"
+  ],
+  "author": "Steffen Soma",
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.3.0",
@@ -22,5 +28,13 @@
   },
   "devDependencies": {
     "typescript": "^4.9.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefsoma/appcheck-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stefsoma/appcheck-cli/issues"
+  },
+  "homepage": "https://github.com/stefsoma/appcheck-cli#readme"
 }
