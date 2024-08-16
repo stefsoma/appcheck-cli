@@ -1,5 +1,3 @@
-bin/appcheckv0.js
 .git
 node_modules
 *.log
-lib/analyzev0.js
