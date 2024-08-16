@@ -1,4 +1,3 @@
-# AppCheck CLI Tool
 
 [![App-Check-logo.png](https://i.postimg.cc/NMWLCxWX/App-Check-logo.png)](https://postimg.cc/47QJmp44) <!-- Replace this URL with the actual URL of your logo -->
 
@@ -7,7 +6,7 @@ AppCheck is a command-line tool designed to help developers manage and maintain 
 ## Features
 
 - **File Usage Analysis:** Lists all used and unused files, including the number of lines of code and file sizes.
-- **Translation Key Check:** Identifies unused or missing translation keys across your project.
+- **Translation Key Check:** Identifies unused or missing translation keys across your project. You can configure this to check translations from an API by setting an `apiEndpoint` in the configuration or from local files if the `apiEndpoint` is not configured. Or check translation files stored locally in e.g. ./locales.
 - **Styling Analysis:** Detects unused styling within your project.
 - **Function Analysis:** Identifies unused functions to help clean up your codebase.
 
@@ -30,6 +29,52 @@ Follow the prompts to specify:
 - **Directory for Translation Files:** Specify the directory where your translation JSON files are stored.
 - **Project File Directories:** Enter the directories in your project where source code files are stored.
 - **Translation Function Name:** Enter the function name used in your code for handling translations (e.g., `t`, `translate`, `i18n`).
+- **Language Code Format:** Choose the format for language codes (e.g., `en_US`).
+- **Language Mappings:** Optionally map language codes to different formats (e.g., mapping `no` to `nb_NO`).
+
+Example `appcheck.config.json`:
+
+```json
+{
+  "translationDir": "./locales",
+  "projectDirs": [
+    "./app",
+    "./components",
+    "./context"
+  ],
+  "translationFunction": "t",
+  "languageCodeFormat": "en_US",
+  "languages": [
+    "en",
+    "es",
+    "fr",
+    "de",
+    "no",
+    "ru",
+    "hu",
+    "ch",
+    "pl",
+    "it",
+    "pt"
+  ],
+  "apiEndpoint": "https://tpsprod.azurewebsites.net/api/translation/translations/",
+  "configureMappings": true,
+  "languageMapping": [
+    {
+      "language": "en",
+      "mappings": [
+        "en_US"
+      ]
+    },
+    {
+      "language": "no",
+      "mappings": [
+        "nb_NO"
+      ]
+    }
+  ]
+}
+```
 
 ### 2. Check Files
 
@@ -69,7 +114,21 @@ Example Output:
 
 Identify any unused or missing translation keys in your project.
 
+#### Using API
+
+If the `apiEndpoint` is configured in your `appcheck.config.json`, the translation check will fetch translations from the API based on the configured language codes and mappings.
+
     appcheck check-translations
+
+The tool will fetch translations using the provided API endpoint and the `languageMapping` specified. It will compare the translation keys fetched from the API with those used in the project directories. If the `apiEndpoint` is configured, the tool will not scan local files unless the `apiEndpoint` is removed from the configuration.
+
+#### Using Local Files
+
+If no `apiEndpoint` is configured, the tool will look for translation files in the `translationDir` directory. It will use the language codes directly as specified in the configuration.
+
+    appcheck check-translations
+
+The tool will compare the keys found in the local translation files with those used in the project directories.
 
 Example Output:
 

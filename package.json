@@ -1,6 +1,6 @@
 {
   "name": "appcheck-cli",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A CLI tool for checking files and translations",
   "main": "index.js",
   "bin": {
@@ -20,11 +20,13 @@
   "author": "Steffen Soma",
   "license": "MIT",
   "dependencies": {
+    "axios": "^1.7.4",
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
     "fs-extra": "^11.2.0",
     "glob": "^11.0.0",
-    "inquirer": "^10.1.8"
+    "inquirer": "^10.1.8",
+    "ora": "^8.0.1"
   },
   "devDependencies": {
     "typescript": "^4.9.5"
