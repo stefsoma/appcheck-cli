@@ -1,0 +1,41 @@
+# Ignore specific translation keys
+keys: 
+  common.date
+  common.time
+  app.version
+  user.profile_picture
+
+# Ignore keys with these prefixes
+prefixes: 
+  temp_
+  debug_
+  internal_
+
+# Ignore keys with these suffixes
+suffixes: 
+  _test
+  _dev
+  _backup
+
+# Ignore keys that match specific patterns (regex)
+patterns: 
+  ^session_.*  # Ignore all keys that start with "session_"
+  ^.*\d{4}$    # Ignore keys that end with four digits (like years)
+
+# Ignore keys that contain numbers
+keysWithNumbers: true
+
+# Ignore keys that match certain value patterns (regex)
+valuePatterns: 
+  ^\d{4}-\d{2}-\d{2}$  # Ignore values that are dates in the format "YYYY-MM-DD"
+  ^\d{2}:\d{2}:\d{2}$  # Ignore values that are times in the format "HH:MM:SS"
+
+# Ignore specific languages
+languages: 
+  fr
+  es
+
+# Ignore specific translation files
+files: 
+  locales/debug.json
+  locales/temp_data.json

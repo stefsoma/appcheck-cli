@@ -1,4 +1,6 @@
 
+# AppCheck CLI Tool
+
 [![App-Check-logo.png](https://i.postimg.cc/NMWLCxWX/App-Check-logo.png)](https://postimg.cc/47QJmp44) <!-- Replace this URL with the actual URL of your logo -->
 
 AppCheck is a command-line tool designed to help developers manage and maintain JavaScript/TypeScript projects. It provides features to check for unused files, unused or missing translation keys, unused styling, and unused functions, helping to keep your project clean and efficient.
@@ -14,7 +16,9 @@ AppCheck is a command-line tool designed to help developers manage and maintain 
 
 Install the AppCheck CLI tool globally via npm:
 
-    npm install -g appcheck-cli
+```bash
+npm install -g appcheck-cli
+```
 
 ## Usage
 
@@ -22,7 +26,9 @@ Install the AppCheck CLI tool globally via npm:
 
 Start by setting up the configuration for your project.
 
-    appcheck init
+```bash
+appcheck init
+```
 
 Follow the prompts to specify:
 
@@ -80,35 +86,39 @@ Example `appcheck.config.json`:
 
 Analyze your project to find all used and unused files.
 
-    appcheck check-files
+```bash
+appcheck check-files
+```
 
 Example Output:
 
-    File Analysis:
-    File: ./app/components/Header.js
-      Size: 1024 bytes
-      Lines: 45
+```bash
+File Analysis:
+File: ./app/components/Header.js
+  Size: 1024 bytes
+  Lines: 45
 
-    File: ./app/components/Footer.tsx
-      Size: 2048 bytes
-      Lines: 78
+File: ./app/components/Footer.tsx
+  Size: 2048 bytes
+  Lines: 78
 
-    File: ./app/views/Home.js
-      Size: 512 bytes
-      Lines: 20
+File: ./app/views/Home.js
+  Size: 512 bytes
+  Lines: 20
 
-    Total Number of Files: 3
-    Total Number of Lines of Code: 143
-    Total Size of Files: 3584 bytes (3.5 KB)
+Total Number of Files: 3
+Total Number of Lines of Code: 143
+Total Size of Files: 3584 bytes (3.5 KB)
 
-    Used files:
-      ./app/components/Header.js
-      ./app/components/Footer.tsx
-      ./app/views/Home.js
+Used files:
+  ./app/components/Header.js
+  ./app/components/Footer.tsx
+  ./app/views/Home.js
 
-    Unused files:
-      ./app/components/Sidebar.jsx
-      ./app/views/About.tsx
+Unused files:
+  ./app/components/Sidebar.jsx
+  ./app/views/About.tsx
+```
 
 ### 3. Check Translations
 
@@ -118,7 +128,9 @@ Identify any unused or missing translation keys in your project.
 
 If the `apiEndpoint` is configured in your `appcheck.config.json`, the translation check will fetch translations from the API based on the configured language codes and mappings.
 
-    appcheck check-translations
+```bash
+appcheck check-translations
+```
 
 The tool will fetch translations using the provided API endpoint and the `languageMapping` specified. It will compare the translation keys fetched from the API with those used in the project directories. If the `apiEndpoint` is configured, the tool will not scan local files unless the `apiEndpoint` is removed from the configuration.
 
@@ -126,77 +138,172 @@ The tool will fetch translations using the provided API endpoint and the `langua
 
 If no `apiEndpoint` is configured, the tool will look for translation files in the `translationDir` directory. It will use the language codes directly as specified in the configuration.
 
-    appcheck check-translations
-
-The tool will compare the keys found in the local translation files with those used in the project directories.
+```bash
+appcheck check-translations
+```
 
 Example Output:
 
-    Unused translation keys:
-      home.title
-      about.description
+```bash
+AppCheck Translation Analysis
+✔ Configuration loaded successfully
 
-    Missing translation keys:
-    In en.json:
-      about.subtitle
+Analysis Configuration:
+• Translation Source: Local Files
+• Translation Directory: ./locales
+• Languages to check: en, es, fr, de, no, nb, ru, hu, ch, pl, it, pt
+• Project directories: ./app, ./components, ./context
+✔ Processed en: Found 286 keys
+✔ Processed nb: Found 286 keys
+⚠ No translation file found for es
+⚠ No translation file found for fr
+⚠ No translation file found for de
+⚠ No translation file found for no
+⚠ No translation file found for ru
+⚠ No translation file found for hu
+⚠ No translation file found for ch
+⚠ No translation file found for pl
+⚠ No translation file found for it
+⚠ No translation file found for pt
+✔ Translation usage analysis complete
+✔ UI translation check complete
 
-    In es.json:
-      home.title
-      about.subtitle
-      contact.form.label
+Analysis Results
+• Total unique translation keys: 286
+• Used translation keys: 243
+• Unused translation keys: 43
+
+Language Summary
+• EN:
+  - Translation Keys: 286
+  - Used Keys: 243
+  - Unused Keys: 43
+  - Usage: 84.97%
+• NB:
+  - Translation Keys: 286
+  - Used Keys: 243
+  - Unused Keys: 43
+  - Usage: 84.97%
+
+Detailed results are written to translation_check.log.
+```
 
 ### 4. Check Styling
 
 Detect and report any unused styles in your project.
 
-    appcheck check-styling
+```bash
+appcheck check-styling
+```
 
 Example Output:
 
-    Unused styles:
-      headerStyle
-      footerStyle
+```bash
+Unused styles:
+  headerStyle
+  footerStyle
+```
 
 ### 5. Check Functions
 
 Identify and list any unused functions within your project.
 
-    appcheck check-functions
+```bash
+appcheck check-functions
+```
 
 Example Output:
 
-    Unused functions:
-      calculateTotal
-      renderSidebar
+```bash
+Unused functions:
+  calculateTotal
+  renderSidebar
+```
 
 ### 6. Help
 
 Get a list of all available commands and their descriptions.
 
-    appcheck help
+```bash
+appcheck help
+```
 
 Example Output:
 
-    AppCheck CLI Tool
+```bash
+AppCheck CLI Tool
 
-    Available Commands:
-      appcheck init
-        Opens the tools menu to configure and check files.
+Available Commands:
+  appcheck init
+    Opens the tools menu to configure and check files.
 
-      appcheck check-files
-        Lists all used and unused files in the configured directories, including file size and lines of code.
+  appcheck check-files
+    Lists all used and unused files in the configured directories, including file size and lines of code.
 
-      appcheck check-translations
-        Checks for unused or missing translation keys.
+  appcheck check-translations
+    Checks for unused or missing translation keys.
 
-      appcheck check-styling
-        Checks for unused styling.
+  appcheck check-styling
+    Checks for unused styling.
 
-      appcheck check-functions
-        Checks for unused functions.
+  appcheck check-functions
+    Checks for unused functions.
 
-      appcheck help
-        Displays help information.
+  appcheck help
+    Displays help information.
+```
+
+### .appcheckignore
+
+You can create a `.appcheckignore` file to specify keys, key prefixes, suffixes, or types of values (like dates, times, or key values containing numbers) that should be ignored during the translation check. This file should be placed in the root directory of your project.
+
+Example `.appcheckignore`:
+
+```
+# Ignore specific keys
+specific.key.to.ignore
+another.key.to.ignore
+
+# Ignore keys with a specific prefix or suffix
+prefix*
+*suffix
+
+# Ignore keys containing numbers
+*\d+*
+
+# Ignore specific types of values (e.g., dates or times)
+*\d{4}-\d{2}-\d{2}*
+*\d{2}:\d{2}:\d{2}*
+```
+
+### Translation Check Log
+
+Results from the translation check, including unused keys, missing translations, and duplicates, are written to a `translation_check.log` file in the root directory. This file provides detailed information about the check, including where each issue was found.
+
+Example contents of `translation_check.log`:
+
+```plaintext
+---------------------------------------------------------------
+Unused translation keys:
+---------------------------------------------------------------
+  home.title
+  about.description
+...
+
+---------------------------------------------------------------
+Missing Translations in UI:
+---------------------------------------------------------------
+• app\(auth)\signup.js, Line 50: "Create Account"
+...
+
+---------------------------------------------------------------
+Duplicate values found in en translations:
+---------------------------------------------------------------
+  • Value: "Success"
+    - Key: "settings.success" in file "locales\en.json" at line 6
+    - Key: "events.success" in file "locales\en.json" at line 6
+...
+```
 
 ## Repository
 
