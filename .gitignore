@@ -8,3 +8,8 @@ node_modules/
 .git/
 
 # Specific files to ignore
+/lib/credentialCheckv0.js
+/lib/credentialCheckv1.js
+/lib/translationCheckv0.js
+/lib/translationCheckNEXTJS.js
+/bin/credentialCheckv0.js

@@ -1,0 +1,11 @@
+# Ignore specific translation keys
+keys: common.date
+
+# Ignore keys with these prefixes
+prefixes: temp_, debug_
+
+# Ignore keys with these suffixes
+suffixes: _test, _dev
+
+# Ignore keys that contain numbers
+keysWithNumbers: true
