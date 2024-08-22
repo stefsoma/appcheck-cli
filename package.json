@@ -1,6 +1,6 @@
 {
   "name": "appcheck-cli",
-  "version": "1.0.13",
+  "version": "1.0.15",
   "description": "A CLI tool for checking files and translations",
   "main": "index.js",
   "bin": {

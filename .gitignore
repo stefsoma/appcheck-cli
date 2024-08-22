@@ -13,3 +13,4 @@ node_modules/
 /lib/translationCheckv0.js
 /lib/translationCheckNEXTJS.js
 /bin/credentialCheckv0.js
+/lib/translationCheckbackup.js
